@@ -74,7 +74,43 @@
 </div>
 <script src="https://unpkg.com/jquery"></script>
 <script>
-  // Add your code here!
+  $('img').addClass('image-center');
+
+  const $pElements = $('p');
+  $pElements[$pElements.length - 1].remove();
+
+  const randomFontSize = Math.floor(Math.random() * 100);
+  $('#title').css({fontSize: randomFontSize});
+
+  $('ol').append('<li>This is jQuerying 8-)</li>');
+
+  $('aside').html('').append($('<p>I am so sorry, I never should have put a listed here.</p>'));
+
+  const $colorSelectors = $('.mb-5');
+  $colorSelectors.on('change', ()=> {
+
+    //const rgbColorText = $(event.target).parent().text();
+
+    //for each $('input'), get it's parent's text, and value
+    //$('body').css({ // add backgrouncolor})
+
+    // const rgbColors = {
+    //   red: 155,
+    //   blue: 135,
+    //   green: 155
+    // };
+
+    // $('body').css('backgroundColor', `rgb(${rgbColors.red}), ${rgb.blue}, ${rbg.green}`)
+
+
+    for (const input of $('input')) {
+      rgbColors[$('input').parent().text()] = input.value;
+      console.log($('input').parent().text())
+    }
+
+    console.log()
+
+  })
 </script>
 </body>
 
