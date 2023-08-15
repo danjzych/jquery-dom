@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Best Movie App</title>
+</head>
+<style>
+
+  input, button {
+    padding: 7px;
+    margin: 16px;
+  }
+
+  .rating {
+    border: solid 5px black;
+  }
+
+</style>
+<body>
+  <form>
+    <input type="text" placeholder="Movie Title" id="movieTitle">
+    <input type="text" placeholder="Movie Rating" id="rating">
+    <button type="submit">
+      Submit Rating
+    </button>
+  </form>
+  <div class="ratingContainer">
+
+  </div>
+</body>
+<script src="https://unpkg.com/jquery"></script>
+<script>
+//when form is submitted, take movie title and movie rating, and create
+//'card' that shows movie and rating. Should have an x to delete
+
+$('form').on('submit', evt => {
+  evt.preventDefault();
+
+  //a div with movie title, rating, and "x" to close
+
+  const newRatingCard = $('<div>');
+  const movieTitleHeader = $(`<h3>${$('#movieTitle').val()}</h3>`);
+  const movieRating = $(`<p>${$('#rating').val()}</p>`);
+  const deleteButton = $('<button type=\'button\'>X</button>');
+
+  deleteButton.on('click', (evt) => {
+    $(evt.target).parent().remove();
+  })
+
+  newRatingCard.append(movieTitleHeader, movieRating, deleteButton).addClass('rating');
+
+  $('.ratingContainer').append(newRatingCard);
+})
+
+
+
+</script>
+</html>
